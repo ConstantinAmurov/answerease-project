@@ -6,7 +6,6 @@ import * as Yup from "yup";
 import "./login.css";
 import PropTypes from "prop-types";
 import { loginRequest, loginPageInit } from "./actions";
-import FlashMessage from "../../components/FlashMessage/FlashMessage";
 import { redirectForConfirm } from "../Register/ConfirmAccount/actions";
 import { browserRedirect } from "../../helpers/helpers";
 
@@ -59,7 +58,6 @@ class Login extends Component {
           <div className="col-md-6 mx-auto">
             {Object.keys(errors).length > 0 && (
               <div>
-                <FlashMessage data={err_message} alertClass="danger" />
                 {confirm_message && <div>{this.messageForConfirm()}</div>}
               </div>
             )}
@@ -67,7 +65,7 @@ class Login extends Component {
         </div>
         <div className="row">
           <div className="col-md-6 mx-auto">
-            <h1>Login</h1>
+            <h1 className="">Login</h1>
             <Formik
               initialValues={{ email: "", password: "" }}
               onSubmit={this.props.onSubmitForm}
