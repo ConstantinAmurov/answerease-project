@@ -17,10 +17,12 @@ const Routes = () => (
   <Router history={history}>
     <Suspense fallback={<div>Loading...</div>}>
       <Switch>
-        <PrivateRoute exact path="/" component={Home} />
+        <AuthRoute exact path="/" component={Home} />
         <AuthRoute path="/login" component={Login} />
         <AuthRoute path="/register" component={Register} />
         <AuthRoute path="/confirm-account" component={ConfirmAccount} />
+        <PrivateRoute exact path="/dashboard" component={Home} />
+
         <PrivateRoute path="/logout" component={Logout} />
       </Switch>
     </Suspense>

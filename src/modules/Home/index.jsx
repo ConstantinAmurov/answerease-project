@@ -1,22 +1,29 @@
-import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
+//Components
+import Header from "./Header";
+import GetStarted from "./GetStarted";
+import TopicsCarousel from "./TopicsCarousel";
+import Topics from "./Topics";
+import PointSystem from "./PointSystem";
+import Collaborative from "./Collaborative";
+import Footer from "./Footer";
 
 class Home extends Component {
-    render(){
-        const user  = JSON.parse(localStorage.getItem('user'));
-        return(
-            <div className="container">
-                <div className="row vh-100">
-                    <div className="col-md-6 mx-auto my-auto">
-                        <div className="jumbotron text-center">
-                            <h1 className="display-4">Hello, {user.firstName} {user.lastName}!</h1>
-                            <Link to="manage-book" className="btn btn-primary btn-lg" role="button">Lets start collecting the Books?</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="container mt-20 mb-20">
+        <Header />
+        <GetStarted />
+        <TopicsCarousel />
+        <Topics />
+        <PointSystem />
+        <Collaborative />
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default Home;
