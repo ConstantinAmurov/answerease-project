@@ -102,7 +102,11 @@ dist
 
 # TernJS port file
 <<<<<<< HEAD
+<<<<<<< HEAD
 .tern-port
 =======
 .tern-port
 >>>>>>> Initial commit
+=======
+.tern-port
+>>>>>>> refs/remotes/origin/main
