@@ -1,12 +1,19 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
 //Formik
-import { useFormik } from "formik";
+import { FormikProvider, useFormik } from "formik";
 
-import FormFooter from "../FormFooter";
-const LoginForm = () => {
+import FormFooter from "modules/Login/FormFooter";
+
+const RegisterForm = () => {
   const formik = useFormik({
-    initialValues: { userName: "", password: "", rememberAccount: false },
+    initialValues: {
+      userName: "",
+      password: "",
+      repeatPassword: "",
+      rememberAccount: false,
+    },
     onSubmit: (values) => console.log(values),
   });
   return (
@@ -23,9 +30,17 @@ const LoginForm = () => {
         type="text"
         className=" mt-4 h-12 w-100 rounded-2xl text-gray-500  text-lg p-4 bg-gray-100 justify-center"
         name="password"
-        placeholder="Password"
         onChange={formik.handleChange}
+        placeholder="Password"
         value={formik.values.password}
+      />
+      <input
+        type="text"
+        className=" mt-4 h-12 w-100 rounded-2xl text-gray-500  text-lg p-4 bg-gray-100 justify-center"
+        name="password"
+        onChange={formik.handleChange}
+        placeholder="Repeat Passowrd"
+        value={formik.values.repeatPassword}
       />
       <button
         className="mt-12 bg-blue text-white h-12  rounded-2xl "
@@ -38,4 +53,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

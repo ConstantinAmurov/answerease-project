@@ -10,7 +10,6 @@ const Home = lazy(() => import("../Home"));
 const Logout = lazy(() => import("../Home/logout"));
 const Login = lazy(() => import("../Login"));
 const Register = lazy(() => import("../Register"));
-const ConfirmAccount = lazy(() => import("../Register/ConfirmAccount"));
 
 // Root routes
 const Routes = () => (
@@ -20,7 +19,7 @@ const Routes = () => (
         <AuthRoute exact path="/" component={Home} />
         <AuthRoute path="/login" component={Login} />
         <AuthRoute path="/register" component={Register} />
-        <AuthRoute path="/confirm-account" component={ConfirmAccount} />
+
         <PrivateRoute exact path="/dashboard" component={Home} />
 
         <PrivateRoute path="/logout" component={Logout} />
