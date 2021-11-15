@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import { browserRedirect } from "helpers/helpers";
 import logo from "assets/AnswerEase logo.png";
 const Header = () => {
   return (
@@ -25,7 +26,10 @@ const Header = () => {
         <Link to="/login">Log in</Link>
       </div>
       <div className="col-2">
-        <button className="bg-blue text-white h-12 pt-4 pb-4 pl-14 pr-14 flex align-items-center rounded-full">
+        <button
+          onClick={() => browserRedirect("/ask-question")}
+          className="bg-blue text-white h-12 pt-4 pb-4 pl-14 pr-14 flex align-items-center rounded-full"
+        >
           Ask question
         </button>
       </div>
