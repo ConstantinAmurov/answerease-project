@@ -1,55 +1,47 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
-//Formik
-import { FormikProvider, useFormik } from "formik";
+import { Form, Formik } from "formik";
+import * as Yup from "yup";
 
+import Input from "components/Layouts/Public/Input";
+import Button from "components/Layouts/Public/Button";
+
+//Formik
 import FormFooter from "modules/Login/FormFooter";
 
+const RegisterSchema = Yup.object().shape({
+  userName: Yup.string().required("Required"),
+  password: Yup.string().required("Required"),
+  passwordConfirmation: Yup.string()
+    .required("Required")
+    .oneOf([Yup.ref("password"), null], "Passwords must match"),
+});
 const RegisterForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      userName: "",
-      password: "",
-      repeatPassword: "",
-      rememberAccount: false,
-    },
-    onSubmit: (values) => console.log(values),
-  });
   return (
-    <form className=" mt-11  flex flex-col" onSubmit={formik.handleSubmit}>
-      <input
-        type="text"
-        className="h-12 w-100 rounded-2xl text-gray-500  text-lg p-4 bg-gray-100 justify-center"
-        name="userName"
-        onChange={formik.handleChange}
-        placeholder="Neptun code"
-        value={formik.values.userName}
-      />
-      <input
-        type="text"
-        className=" mt-4 h-12 w-100 rounded-2xl text-gray-500  text-lg p-4 bg-gray-100 justify-center"
-        name="password"
-        onChange={formik.handleChange}
-        placeholder="Password"
-        value={formik.values.password}
-      />
-      <input
-        type="text"
-        className=" mt-4 h-12 w-100 rounded-2xl text-gray-500  text-lg p-4 bg-gray-100 justify-center"
-        name="password"
-        onChange={formik.handleChange}
-        placeholder="Repeat Passowrd"
-        value={formik.values.repeatPassword}
-      />
-      <button
-        className="mt-12 bg-blue text-white h-12  rounded-2xl "
-        type="submit"
-      >
-        Log in
-      </button>
-      <FormFooter formik={formik}></FormFooter>
-    </form>
+    <Formik
+      initialValues={{
+        userName: "",
+        password: "",
+        passwordConfirmation: "",
+        remember: false,
+      }}
+      validationSchema={RegisterSchema}
+      onSubmit={() => console.log("test")}
+    >
+      {({}) => (
+        <Form className=" mt-4 mb-4">
+          <Input type="text" name="userName" placeholder="Neptun Code" />
+          <Input type="password" name="password" placeholder="Password"></Input>
+          <Input
+            type="password"
+            name="passwordConfirmation"
+            placeholder="Repeat password"
+          ></Input>
+          <Button type="submit" text="Sign up" />
+          <FormFooter></FormFooter>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
