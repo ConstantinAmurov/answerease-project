@@ -11,7 +11,7 @@ const AskQuestion = () => {
     <div className="container mt-20 mb-20">
       <Header></Header>
       <div className="row mt-28">
-        <div className=" offset-lg-1 col-6 text-left">
+        <div className="col-6 text-left">
           <h1 className="text-2xl ">Ask question...</h1>
           <form onSubmit={formik.handleSubmit} className="mt-4 flex flex-col">
             <textarea

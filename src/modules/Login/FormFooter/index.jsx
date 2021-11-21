@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Field } from "formik";
 import { Link } from "react-router-dom";
 
 const FormFooter = ({ formik }) => {
@@ -7,12 +8,7 @@ const FormFooter = ({ formik }) => {
     <>
       <div className="row  mt-10">
         <div className="col flex align-items-center">
-          <input
-            type="checkbox"
-            name="rememberAccount"
-            value={formik.values.rememberAccount}
-            onChange={formik.handleChange}
-          />{" "}
+          <Field type="checkbox" name="remember" />{" "}
           <h1 className="ml-2 text-lg">Keep me logged in</h1>
         </div>
         <div className="col flex justify-end">

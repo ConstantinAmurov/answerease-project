@@ -1,40 +1,36 @@
 import React from "react";
 
 //Formik
-import { useFormik } from "formik";
-
+import { Form, Formik } from "formik";
+import * as Yup from "yup";
 import FormFooter from "../FormFooter";
+import Input from "components/Layouts/Public/Input";
+import Button from "components/Layouts/Public/Button";
+const LoginSchema = Yup.object().shape({
+  userName: Yup.string().required("Required"),
+  password: Yup.string().required("Required"),
+});
+
 const LoginForm = () => {
-  const formik = useFormik({
-    initialValues: { userName: "", password: "", rememberAccount: false },
-    onSubmit: (values) => console.log(values),
-  });
   return (
-    <form className=" mt-11  flex flex-col" onSubmit={formik.handleSubmit}>
-      <input
-        type="text"
-        className="h-12 w-100 rounded-2xl text-gray-500  text-lg p-4 bg-gray-100 justify-center"
-        name="userName"
-        onChange={formik.handleChange}
-        placeholder="Neptun code"
-        value={formik.values.userName}
-      />
-      <input
-        type="text"
-        className=" mt-4 h-12 w-100 rounded-2xl text-gray-500  text-lg p-4 bg-gray-100 justify-center"
-        name="password"
-        placeholder="Password"
-        onChange={formik.handleChange}
-        value={formik.values.password}
-      />
-      <button
-        className="mt-12 bg-blue text-white h-12  rounded-2xl "
-        type="submit"
-      >
-        Log in
-      </button>
-      <FormFooter formik={formik}></FormFooter>
-    </form>
+    <Formik
+      initialValues={{
+        userName: "",
+        password: "",
+        remember: false,
+      }}
+      validationSchema={LoginSchema}
+      onSubmit={() => console.log("test")}
+    >
+      {({}) => (
+        <Form className=" mt-4 mb-4">
+          <Input type="text" name="userName" placeholder="Neptun Code" />
+          <Input type="password" name="password" placeholder="Password"></Input>
+          <Button type="submit" text="Log in" />
+          <FormFooter></FormFooter>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
