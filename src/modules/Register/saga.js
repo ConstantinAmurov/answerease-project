@@ -1,9 +1,9 @@
 import { put, all, call, takeLatest } from "redux-saga/effects";
-import { request } from "../../helpers/requests";
-import { urls } from "../../helpers/urls";
+import { request } from "helpers/requests";
+import { urls } from "helpers/urls";
 import { REGISTER_REQUESTING, registerSuccess, registerError } from "./actions";
 
-import { browserRedirect } from "../../helpers/helpers";
+import { browserRedirect } from "helpers/helpers";
 
 //Register API call
 function registerCall(payload) {
