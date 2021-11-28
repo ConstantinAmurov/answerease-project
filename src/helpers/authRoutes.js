@@ -9,7 +9,7 @@ const AuthRoute = ({
   ...rest
 }) => {
   const Routes = (props) => {
-    if(checkAuthorization() === false){
+    if (checkAuthorization() === false) {
       return (
         <Route
           {...rest}
@@ -20,9 +20,9 @@ const AuthRoute = ({
           }
         />
       );
-    }else {
+    } else {
       return (
-        <Redirect 
+        <Redirect
           to={{
             pathname,
             state: { from: props.location },
@@ -30,13 +30,13 @@ const AuthRoute = ({
         />
       );
     }
-  }
+  };
   return (
     <Routes />
   );
 };
 
-AuthRoute.defaultProps = { redirect: '/' };
+AuthRoute.defaultProps = { redirect: '/dashboard' };
 
 AuthRoute.propTypes = {
   component: PropTypes.object.isRequired,

@@ -6,31 +6,43 @@ import * as Yup from "yup";
 import Input from "components/Layouts/Public/Input";
 import Button from "components/Layouts/Public/Button";
 
-//Formik
-import FormFooter from "modules/Login/FormFooter";
-
 const RegisterSchema = Yup.object().shape({
-  userName: Yup.string().required("Required"),
+  name: Yup.string().required("Required"),
+
+  surname: Yup.string().required("Required"),
+
+  username: Yup.string().required("Required"),
   password: Yup.string().required("Required"),
   passwordConfirmation: Yup.string()
     .required("Required")
     .oneOf([Yup.ref("password"), null], "Passwords must match"),
 });
-const RegisterForm = () => {
+const RegisterForm = (props) => {
+  const { onSubmit } = props;
   return (
     <Formik
       initialValues={{
-        userName: "",
+        name: "",
+        surname: "",
+        username: "",
         password: "",
         passwordConfirmation: "",
-        remember: false,
       }}
       validationSchema={RegisterSchema}
-      onSubmit={() => console.log("test")}
+      onSubmit={(values) =>
+        onSubmit({
+          name: values.name,
+          surname: values.surname,
+          username: values.username,
+          password: values.password,
+        })
+      }
     >
-      {({}) => (
+      {() => (
         <Form className=" mt-4 mb-4">
-          <Input type="text" name="userName" placeholder="Neptun Code" />
+          <Input type="text" name="name" placeholder="First Name" />
+          <Input type="text" name="surname" placeholder="Last Name" />
+          <Input type="text" name="username" placeholder="User name" />
           <Input type="password" name="password" placeholder="Password"></Input>
           <Input
             type="password"
@@ -38,7 +50,7 @@ const RegisterForm = () => {
             placeholder="Repeat password"
           ></Input>
           <Button type="submit" text="Sign up" />
-          <FormFooter></FormFooter>
+          {/* <FormFooter></FormFooter> */}
         </Form>
       )}
     </Formik>

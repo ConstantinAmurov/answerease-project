@@ -10,7 +10,6 @@ import {
 
 //Login API call
 function loginCall(payload) {
-  debugger;
   return request('post', urls.LOGIN_URL, payload);
 }
 

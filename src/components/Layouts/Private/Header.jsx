@@ -1,37 +1,42 @@
-import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
 
-class Header extends Component {    
-    render() {
-        const user  = JSON.parse(localStorage.getItem('user'));
-        return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <Link to="/" className="navbar-brand">[Company-Name]</Link>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
-                            <Link to="/" className="nav-link">Home</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/book" className="nav-link">My Books</Link>
-                        </li>
-                    </ul>
-                    <div className="dropdown">
-                        <a className="navbar-text dropdown-toggle" href="# " id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {user.firstName} {user.lastName}
-                        </a>
-                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            {/*<a className="dropdown-item" href="#">Profile</a>*/}
-                            <Link to="/logout" className="dropdown-item">Logout</Link>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        );
-    }
-}
+import { Link } from "react-router-dom";
+import { browserRedirect } from "helpers/helpers";
+
+import logo from "assets/AnswerEase logo.png";
+const Header = () => {
+  return (
+    <div className="row flex align-items-center text-center">
+      <Link to="" className="relative col-3">
+        <img src={logo} alt="" srcset="" className="absolute -top-12 -left-6" />
+      </Link>
+
+      <div className="col-5">
+        <input
+          type="text"
+          placeholder="Search for answer for any question..."
+          className="h-12 w-100 rounded-2xl text-gray-500  text-lg p-4 bg-gray-100 justify-center"
+        ></input>
+      </div>
+      <div className="col-1 ">
+        <Link to="/profile" className="">
+          Profile
+        </Link>
+      </div>
+      <div className="col-1">
+        <Link to="/notifications">Notifications</Link>
+      </div>
+      <div className="col-2">
+        <button
+        type="button"
+          onClick={() => browserRedirect("/ask-question")}
+          className="bg-blue text-white h-12 pt-4 pb-4 pl-14 pr-14 flex align-items-center rounded-full"
+        >
+          Ask question
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Header;

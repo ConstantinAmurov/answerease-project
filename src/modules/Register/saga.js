@@ -14,7 +14,7 @@ function registerCall(payload) {
 function* registerWorker({ payload }) {
   try {
     let response = yield call(registerCall, payload);
-    yield put(registerSuccess());
+    yield put(registerSuccess(response));
 
     yield call(browserRedirect, "/confirm-account");
   } catch (err) {

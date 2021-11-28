@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "components/Layouts/Public/Header";
 
 import { useFormik } from "formik";
 const AskQuestion = () => {
@@ -9,7 +8,6 @@ const AskQuestion = () => {
   });
   return (
     <div className="container mt-20 mb-20">
-      <Header></Header>
       <div className="row mt-28">
         <div className="col-6 text-left">
           <h1 className="text-2xl ">Ask question...</h1>
