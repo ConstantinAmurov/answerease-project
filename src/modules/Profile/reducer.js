@@ -27,6 +27,7 @@ export default function userReducer(state = initialState, actions) {
             return {
                 ...state,
                 successful: false,
+                requesting: false,
                 errors: { ...actions.error },
             };
 

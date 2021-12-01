@@ -18,6 +18,6 @@ export const request = (method, url, payload = null, headers = 1) => {
             'Authorization': 'Bearer ' + localStorage.getItem('token'),
             'Content-Type': 'application/json',
         };
-    debugger;
+        
     return axios(requestData);
 };

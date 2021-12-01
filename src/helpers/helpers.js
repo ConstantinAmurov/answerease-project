@@ -1,5 +1,6 @@
 import React from 'react';
 import history from '../config/history';
+import formatDistance from "date-fns/formatDistance";
 
 export const DisplayFormikState = props =>
   <div style={{ margin: '1rem 0' }}>
@@ -39,3 +40,20 @@ export const checkSession = (user) => {
 
   return false;
 };
+
+
+export const getTimeAgo = (date) => {
+  const time_ago = formatDistance(new Date(date), new Date(), {
+    addSuffix: true,
+  });
+  return time_ago;
+};
+export const getCategoryById = (categories, id) => {
+
+  return categories.filter((category) => category.id === id)[0];
+};
+
+export const getCategoryByName = (categories, name) => {
+  return categories.filter((category) => category.name === name)[0];
+};
+

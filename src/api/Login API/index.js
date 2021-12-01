@@ -7,7 +7,7 @@ const API_ROOT = process.env.REACT_APP_DEV_API_URL;
 const header = {
     grant_type: "password",
     client_id: 1,
-    client_secret: "vbciEeMWla1ozFUEO617uESKxA6Xn7R87wtGd03b"
+    client_secret: "hxFJI7x2ULPrUTBz28fn2a3hWvkx0pFqEfqFCr2W"
 };
 
 export const login = async (values) => {
@@ -17,7 +17,7 @@ export const login = async (values) => {
             grant_type: 'password',
             client_id: 1,
             client_secret: "hxFJI7x2ULPrUTBz28fn2a3hWvkx0pFqEfqFCr2W"
-        }, { headers: header });
+    }, { headers: header });
         return data;
 
     }
@@ -26,6 +26,6 @@ export const login = async (values) => {
     }
 };
 
-export const getLoggedInUser = () => { 
-    
+export const getLoggedInUser = () => {
+
 };

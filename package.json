@@ -5,6 +5,7 @@
   "dependencies": {
     "@craco/craco": "^6.4.0",
     "axios": "^0.24.0",
+    "date-fns": "^2.27.0",
     "dotenv": "^8.2.0",
     "formik": "2.2.9",
     "react": "^16.11.0",

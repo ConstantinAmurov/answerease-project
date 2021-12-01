@@ -13,10 +13,8 @@ function getUserCall() {
 // Register Worker
 function* getUserWorker({ payload }) {
     try {
-        debugger;
         let { data } = yield call(getUserCall, payload);
-        yield put(getUserSuccess(data[0]));
-        yield call(browserRedirect, "/dashboard");
+        yield put(getUserSuccess(data));
     } catch (err) {
         yield put(getUserError(err.response.data));
     }

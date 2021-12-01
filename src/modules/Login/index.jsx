@@ -5,6 +5,7 @@ import Header from "components/Layouts/Public/Header";
 
 import Form from "./LoginForm";
 import { browserRedirect, setToken } from "helpers/helpers";
+import { getUserRequest } from "modules/Profile/actions";
 import { login } from "api/Login API";
 import {
   errorNotification,
@@ -20,6 +21,7 @@ const Login = () => {
     mutate(data, {
       onSuccess: (data) => {
         setToken(data.access_token);
+        dispatch(getUserRequest());
         dispatch(successNotification("Successfully Logged in"));
         browserRedirect("/dashboard");
       },
