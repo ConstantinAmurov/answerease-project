@@ -1,33 +1,28 @@
 
-# React JS with Redux and Saga Project Structure
-[![Author](http://img.shields.io/badge/author-@maitraysuthar-blue.svg)](https://www.linkedin.com/in/maitray-suthar/) [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/maitraysuthar/react-redux-saga-boilerplate/blob/master/LICENSE)  ![GitHub repo size](https://img.shields.io/github/repo-size/maitraysuthar/react-redux-saga-boilerplate)
+# AnswerEase Project
 
-A ready-to-use boilerplate for React JS with Redux and Saga.
+
 
 ## Project Overview
 
-This is a basic project structure with repeatative use cases. Added some essential feature for every projects. It is very useful to build mid to complex level project. This project structure is based on **NodeJs api boilerplate app:** https://github.com/maitraysuthar/rest-api-nodejs-mongodb
+AnswerEase Project is knowledge-sharing community where students put their heads together to crack their toughest homework questions.
+Based on specific topics, users can ask a question, respond to a question and like the answers, for which they receive points that can be exchanged in future for some Merchandise from university. 
 
-I had tried to maintain the code structure easy as any beginner can also adopt the flow and start building a great app. Project is open for suggestions, Bug reports and pull requests.
+## Project Overview
+UI Design made in Figma ( by Polina Alekseeva): 
+https://www.figma.com/file/b2CbIHm4t6oUHcQa78X0qN/AnswerEase-Final?node-id=0%3A1
 
-## Is this project deserves a small treat?
+## Technologies
+Front-end:
+- React.JS
+- Redux
+- React Query
+- Tailwind
+Back-end:
+- Laravel
+- Docker
+- nginx
 
-If you consider my project as helpful stuff, You can appreciate me or my hard work and time spent to create this helpful structure with buying a coffee for me.
-
-<a href='https://ko-fi.com/U6U617IA8' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> &nbsp;&nbsp; <a href="https://www.buymeacoffee.com/36GgOoQ2f" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-
-## Features
-
-|Feature|Details  |
-|--|--|
-|  Structure|  Project is build with extenensible and flexible **Moduler** pattern|
-|  Authentication|  Basic Authentication (Register/Login)|
-|  Confirm Account|  Account confirmation with OTP verification|
-|  Route Protection|  Route protection with middleware and localstorage|
-|  Lazy Loading|  Added **Lazy Loading** of components to fasten the execution process of application|
-|  App State Management|  Application level state management with **Redux**|
-|  Async Call|  Managed async calls with **Saga** middleware|
-|  Forms|  Managed apllication forms & validations with **Formik** and **Yup**|
 
 ## Software Requirements
 
@@ -64,32 +59,14 @@ npm install
     ```
 3.  The file `.env` is already ignored, so you never commit your credentials.
 4.  Change the values of the file to your environment. Helpful comments added to `.env.example` file to understand the constants.
+5.  As well , the Back-end application should be running in the background, locally or hosted somewhere.
 
-## How to run
-
-```bash
-npm start
-```
 
 ## New Module
 
 All the modules of the project will be in `/src/modules/` folder, If you need to add more modules to the project just create a new folder in the same folder.
 
-##### Every folder contains following files:
-- Component file (`index.jsx`)
-- Actions file (`actions.js`)
-- Reducer file (`reducer.js`)
-- Saga file (`saga.js`)
-- Style file (`[module].css`)
-- Sub module folder, if any.
 
 ##### Root module:
 Module's root module folder is `/src/modules/app/` it contains main **Routes file (`routes.js`)**, **Reducer file (`mainReducer.js`)** and **Saga file (`mainSaga.js`)**. You will need to add your every component,reducer & saga to make your module work.
 
-## Found any bug? Need any feature?
-
-Every project needs improvements, Feel free to report any bugs or improvements. Pull requests are always welcome.
-
-## License
-
-This project is open-sourced software licensed under the MIT License. See the LICENSE file for more information.
